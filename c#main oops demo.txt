@@ -1,0 +1,70 @@
+//showing in this program concept of encapsulation,polymorphism,abstraction,inheritance
+
+public class Demo
+{
+	public static void Main(string[] args)
+	{
+		Rudra r = new Rudra();
+		System.Console.Out.WriteLine("For Rudra class");
+		r.Add(2, 3);
+		//addition of two integers  here
+		r.Add(2.3f, 2.7f);
+		// addition of two floats here
+		Jack j = new Jack();
+		System.Console.Out.WriteLine("for Jack which is inherited from Rudra class");
+		j.Add(2, 3);
+		// multiplication of two integers 
+		romit rm = new romit();
+		// constructor created, object Instantiation 
+		rm.run();
+		rm.walk();
+	}
+}
+
+internal class Rudra
+{
+	// Encapsulation 
+	public virtual void Add(int a, int b)
+	{
+		int c = a + b;
+		System.Console.Out.WriteLine("The int sum is " + c);
+	}
+
+	public virtual void Add(float a, float b)
+	{
+		// Overloading here 
+		float c = a + b;
+		System.Console.Out.WriteLine("The float sum is " + c);
+	}
+}
+
+internal class Jack : Rudra
+{
+	public override void Add(int a, int b)
+	{
+		// Override 
+		int c = a * b;
+		System.Console.Out.WriteLine("this is override " + c);
+	}
+}
+
+internal interface exe
+{
+	// Abstraction 
+	void run();
+
+	void walk();
+}
+
+internal class romit : exe
+{
+	public virtual void run()
+	{
+		System.Console.Out.WriteLine("the system is running ");
+	}
+
+	public virtual void walk()
+	{
+		System.Console.Out.WriteLine("the system is walking ");
+	}
+}
